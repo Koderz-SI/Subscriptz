@@ -75,8 +75,13 @@
 						<h2 class="templatemo-brown">Subscriptz 🔴 </h2><br>
 						<h3 class="templatemo-gold">All of us have some unused subscriptions collected from various events and hackathons. Why don't we share some?
 							<br/>Or you can collect 'em too!!!😉</h3>
-						<a href="/login" class="btn text-uppercase templatemo-btn templatemo-info-btn" style="background-color: rgb(201, 84, 38);">Log in 🤭</a> 
-						<a href="/signup" class="btn text-uppercase templatemo-btn templatemo-info-btn" style="background-color: rgb(12, 95, 143);">Sign Up 😨</a>
+							<% if(logged){ %>
+								<a href="/explore" class="btn text-uppercase templatemo-btn templatemo-info-btn" style="background-color: rgb(201, 84, 38); width: 150px; align-items: center;">Explore 🤭</a> 
+							<% }else{ %>
+								<a href="/login" class="btn text-uppercase templatemo-btn templatemo-info-btn" style="background-color: rgb(201, 84, 38); width: 150px; align-items: center;">Log in 🤭</a> 
+								<a href="/signup" class="btn text-uppercase templatemo-btn templatemo-info-btn" style="background-color: rgb(12, 95, 143); width: 150px; align-items: center;">Sign Up 😨</a>
+							<% } %>
+						
 					</div>					
 				</div>
 			</div>
