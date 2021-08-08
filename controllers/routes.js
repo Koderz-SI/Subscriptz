@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const user = require('../models/user');
+const subs = require('../models/subs');
+const contact = require('../models/contact');
 const bcryptjs = require('bcryptjs');
 const passport = require('passport');
 require('./passportLocal')(passport);
@@ -33,14 +35,14 @@ router.get('/signup', (req, res) => {
 router.post('/signup', (req, res) => {
     const { email, username, password, confirmpassword } = req.body;
     if (!email || !username || !password || !confirmpassword ){
-        res.render("signup", { err: "All Fields Required!", csrfToken: req.csrfToken() });
+        res.render("signup", { err: "All Fields Required!" });
     }else if(password != confirmpassword){
-        res.render("signup", { err: "Passwords don't match!", csrfToken: req.csrfToken() });
+        res.render("signup", { err: "Passwords don't match!" });
     }else{
         user.findOne({ $or: [{ email: email }, { username: username }]}, (err, data) => {
             if(err) throw err;
             if(data){
-                res.render("signup", { err: "User Exists, Try logging in!", csrfToken: req.csrfToken()})
+                res.render("signup", { err: "User Exists, Try logging in!"})
             }else{
                 bcryptjs.genSalt(12, (err, salt) => {
                     if (err) throw err;
@@ -79,5 +81,65 @@ router.get('/logout', (req, res) => {
 router.get('/profile', checkAuth, (req, res) => {
     res.render('profile', { username: req.user.username, verified: req.user.isVerified })
 });
+
+router.get('/add', checkAuth, (req, res) => {
+    res.render('add');
+});
+router.post("/add-subs", checkAuth, (req, res) => {
+    const username = req.user.username;
+    const title = req.body.title;
+    const desc = req.body.desc;
+    const expr_date = req.body.expr_date;
+    const url = req.body.url;
+    const platform = req.body.platform;
+    const newSubscription = new subs({
+        username,
+        title,
+        desc,
+        expr_date,
+        url,
+        platform
+    });
+    newSubscription
+      .save()
+      .then(() => {
+        //DO THIS FOR EACH USER
+        res.redirect("/add");
+      })
+      .catch((err) => console.log(err));
+});
+
+router.get("/explore", checkAuth, (req, res) => {
+    var explore;
+    subs.find({username: {$ne: req.user.username}}, (err, data) => {
+        if (err) {
+        console.log(err);
+        }
+        if (data) {
+        explore = data;
+        }
+        res.render("explore", { data: explore });
+    });
+});
+router.post("/contact", (req, res) => {
+    const name = req.body.name;
+    const email = req.body.email;
+    const sub = req.body.sub;
+    const msg = req.body.msg;
+    const newContact = new contact({
+        name,
+        email,
+        sub,
+        msg,
+    });
+    newContact
+      .save()
+      .then(() => {
+        //DO THIS FOR EACH USER
+        res.redirect("/");
+      })
+      .catch((err) => console.log(err));
+});
+
 router.use(require('./userRoutes'));
 module.exports = router;

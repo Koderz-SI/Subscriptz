@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true },),);
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views/templates');
+app.use("/assets", express.static(__dirname + "/assets"));
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex:true}).then(() => console.log("Connected!"),);
 
