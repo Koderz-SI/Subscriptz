@@ -23,6 +23,12 @@ TABLE OF CONTENT
 
 /* 1. Universal Styles
 --------------------------------------*/
+hr.style-four {
+  height: 12px;
+  border: 0;
+  box-shadow: inset 0 12px 12px -12px rgba(250, 246, 246, 0.5);
+}
+
 * { font-family: 'Open Sans', sans-serif; }
 body { background-color: #000; }
 h1, h2, h3 { text-transform: uppercase; }
