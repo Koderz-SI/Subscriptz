@@ -7,4 +7,8 @@ About Project:
 4) At My Subscriptz user can check out the subscriptons which they have claimed.
 
 Tech Stack:
+Frontend: HTML, CSS, BootStrap  <br>
+Backend : NodeJs   <br>
+DataBase: MongoDB
 
+Made with ❤ by Sanskriti and Irit
