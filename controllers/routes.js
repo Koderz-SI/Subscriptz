@@ -67,7 +67,7 @@ router.post('/signup', (req, res) => {
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
         failureRedirect: '/login',
-        successRedirect: '/profile',
+        successRedirect: '/explore',
         failureFlash: true,
     })(req, res, next);
 });
@@ -78,9 +78,6 @@ router.get('/logout', (req, res) => {
     })
 });
 
-router.get('/profile', checkAuth, (req, res) => {
-    res.render('profile', { username: req.user.username, verified: req.user.isVerified })
-});
 
 router.get('/add', checkAuth, (req, res) => {
     res.render('add');
@@ -111,14 +108,14 @@ router.post("/add-subs", checkAuth, (req, res) => {
 
 router.get("/explore", checkAuth, (req, res) => {
     var explore;
-    subs.find({username: {$ne: req.user.username}}, (err, data) => {
+    subs.find({username: {$ne: req.user.username}, claimed: null}, (err, data) => {
         if (err) {
-        console.log(err);
+            console.log(err);
         }
         if (data) {
-        explore = data;
+            explore = data;
         }
-        res.render("explore", { data: explore });
+        res.render("explore", { data: explore, username: req.user.username, verified: req.user.isVerified });
     });
 });
 router.post("/contact", (req, res) => {
@@ -141,5 +138,30 @@ router.post("/contact", (req, res) => {
       .catch((err) => console.log(err));
 });
 
+router.post("/claim", checkAuth, async(req, res) => {
+    const id = req.body.id;
+    try {
+        let suc2 = await subs.updateOne(
+          { _id: id },
+          { $set: { claimed: req.user.username } }
+        );
+      } catch (e) {
+        console.log(e);
+      }
+      res.redirect("/my_subscriptz");
+  });
+
+router.get("/my_subscriptz", checkAuth, (req, res) => {
+    var subscript;
+    subs.find({claimed: req.user.username}, (err, data) => {
+        if (err) {
+            console.log(err);
+        }
+        if (data) {
+            subscript = data;
+        }
+        res.render("my_subscriptz", { data: subscript});
+    });
+});
 router.use(require('./userRoutes'));
 module.exports = router;

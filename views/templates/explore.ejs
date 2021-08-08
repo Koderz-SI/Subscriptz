@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<head>
+	<!-- 
+    	Brownie Template
+    	http://www.templatemo.com/preview/templatemo_440_brownie
+
+    	Credits:
+    	http://sorgalla.com/jcarousel/
+    	http://unsplash.com
+    	http://absurdwordpreferred.deviantart.com/art/FREE-Cogs-Transparent-PNG-145452644
+    -->
+	<title>Subscriptz</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet">
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/explore.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<nav id="responsive-menu">
+        <ul class="menu-holder">
+            <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+            <li class="active"><a href="/explore"><i class="fa fa-briefcase"></i>Explore</a></li>
+            <li><a href="/add"><i class="fa fa-home"></i>Add</a></li>
+            <li><a href="/logout"><i class="fa fa-cogs"></i>Logout</a></li>
+            
+        </ul>
+    </nav>
+    <div class="templatemo-site-header" style="background-color: black;">
+		<div class="container">
+			<div class="row templatemo-position-relative">				
+				<nav class="hidden-xs text-uppercase templatemo-nav">
+					<ul class="menu-holder">
+						<li><a href="/">🏡Home</a></li>
+						<li class="active"><a href="/explore">🔍Explore</a></li>
+                        <li><a href="/add">➕Add</a></li>
+                        <li><a href="/my_subscriptz">MY zzz</a></li>					
+						<li><a href="/logout">Logout</a></li>
+					</ul>
+				</nav>
+				<h1 class="templatemo-site-name">
+                	<span class="templatemo-brown" style="align-items: center">Get Started 🤩</span> 
+                	<span class="templatemo-gold"></span>
+                </h1>
+				<div class="text-right visible-xs">
+		            <a href="#" id="mobile_menu"><span class="fa fa-bars"></span></a>
+		        </div>
+			</div>
+		</div>    	
+    </div>
+    <div style="color: whitesmoke;">
+    <% if(!verified){ %>
+        <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+          <strong style="color: whitesmoke; font-size: xx-large;">ATTENTION !</strong> Please verify your account to continue using our services.
+          <a href="/user/send-verification-email">Re-send Verification Email</a>
+        </div>
+        <% } %>
+        <% if(typeof emailsent !='undefined' ){ %>
+          <% if(emailsent){ %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong>SUCCESS</strong> Verification Email Sent Sucessfully. Valid Only for 20 minutes.
+            </div>
+            <% } %>
+              <% } %>
+              <% if(typeof err !='undefined' ){ %>
+                <% if(err){ %>
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>ERROR </strong>
+                    <%= err %>
+                  </div>
+                  <% } %>
+                    <% } %>
+                </div>
+                
+                <div style="color: whitesmoke;">
+                    <% if(!verified){ %>
+                        <div class="text-center" role="alert">
+                          <strong>ATTENTION !</strong> Please verify your account to continue using our services.
+                          <a href="/user/send-verification-email">Re-send Verification Email</a>
+                          <button style="color: white;" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <% } %>
+                    <% if(typeof emailsent !='undefined' ){ %>
+                        <% if(emailsent){ %>
+                            <div class="text-center" role="alert">
+                              <strong>SUCCESS !</strong> Verification Email Sent Sucessfully. Valid Only for 20 minutes.
+                            </div>
+                        <% } %>
+                    <% } %>
+                    <% if(typeof err !='undefined' ){ %>
+                        <% if(err){ %>
+                            <div class="text-center" role="alert">
+                            <strong>ERROR !</strong>
+                            <%= err %>
+                            </div>
+                        <% } %>
+                    <% } %>
+                </div>
+	<section id="home" class="templatemo-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 templatemo-position-relative">
+					<div class="templatemo-flex-center templatemo-black-bg text-center">
+						<div class="templatemo-home-image-container">
+							<iframe src="https://giphy.com/embed/fUdyd5pLDbbQoVcwhE" width="480" height="247" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+							<div class="templatemo-image-overlay">							
+								
+								<p class="text-uppercase templatemo-gold">Subscriptz</p>
+																				
+							</div>
+						</div>
+					</div>										
+				</div>
+				<div class="col-lg-6 col-md-6">
+					<div class="templatemo-content-box templatemo-second-box">
+						<h2 class="templatemo-brown">🤗 Available Subscription Coupons</h2>
+						<h3 class="templatemo-gold">"Only Available For Limited Time ⌚.. Hurry Up Guyss!!! 🏃"</h3>
+                        <a href="/add" class="btn text-uppercase templatemo-btn templatemo-info-btn" style="background-color: rgb(201, 84, 38);">Add Coupons🤭</a>
+						
+						</div>					
+				</div>
+			</div>
+		</div>
+	</section>
+  
+	
+    <section id="about" class="templatemo-section">
+		<div class="container">
+			<div class="row">
+                <% for( var subs of data ) { %>
+				<div class="col-lg-6 col-md-6">
+                    <section>
+                        <section id="services" class="templatemo-section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="templatemo-flex-center templatemo-black-bg text-center">
+                                            <div class="templatemo-flex-center templatemo-brown-rectangle-bg">
+                                                <div class="templatemo-flex-item-ie-fix padding-30">
+                                                    <h2 class="templatemo-gold"><%= subs.title %></h2>
+                                                    <div class="templatemo-service-container margin-top-15">
+                                                        <img src="assets/images/plan-1.png" alt="Plan 1" class="templatemo-service-image">
+                                                        <div class="templatemo-service-content text-left">
+                                                            <h3 class="templatemo-service-title templatemo-brown">About Coupon 🤔</h3>
+                                                            <p class="templatemo-service-description"><%= subs.desc %></p>
+                                                            <h3 class="templatemo-service-title templatemo-brown">Username 🙊</h3>
+                                                            <p class="templatemo-service-description"><%= subs.username %></p>
+                                                        </div>						
+                                                    </div>
+                                                    <div class="templatemo-service-container">
+                                                        <img src="assets/images/plan-2.png" alt="Plan 2" class="templatemo-service-image">
+                                                        <div class="templatemo-service-content text-left">
+                                                            <h3 class="templatemo-service-title templatemo-brown">URL 🔗</h3>
+                                                            <a href=<%= subs.url %>><p class="templatemo-service-description">Link</p></a>
+                                                            <h3 class="templatemo-service-title templatemo-brown">Platform 🎯</h3>
+                                                            <p class="templatemo-service-description"><%= subs.platform %></p>	
+                                                            
+                                                        </div>						
+                                                    </div>
+                                                    <div class="templatemo-service-container">
+                                                        <img src="assets/images/plan-3.png" alt="Plan 3" class="templatemo-service-image">
+                                                        <div class="templatemo-service-content text-left">
+                                                            <h3 class="templatemo-service-title templatemo-brown">Expiry Date 📅</h3>
+                                                            <p class="templatemo-service-description"><%= subs.expr_date.getDate()+"/"+(subs.expr_date.getMonth()+1)+"/"+subs.expr_date.getFullYear() %></p>	
+                                                        </div>						
+                                                    </div>	
+                                                    <form method="post" action="/claim">
+                                                        <input type="hidden" name="id" value="<%= subs.id %>">
+                                                        <button>Claim</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                    </section>
+
+				</div>
+                <% } %> 
+	</section>
+
+	<footer class="container margin-top-30">
+		<div class="row">
+			<div class="col-lg-12">
+				<p class="templatemo-copyright-container text-uppercase small templatemo-brown">
+					<span class="templatemo-copyright-text">Copyright &copy; 2084 <a href="#" class="templatemo-gold">Company Name</a></span>
+					<!-- <span class="templatemo-copyright-design">Design: <a href="http://www.templatemo.com" class="templatemo-gold">templatemo</a></span> -->
+				</p>
+			</div>
+		</div>		
+	</footer>	
+	<script src="assets/js/jquery-1.11.1.min.js"></script>
+	<script src="assets/js/jquery.jcarousel.min.js"></script>
+	<script src="assets/js/templatemo_script.js"></script>
+</body>
+</html>

@@ -22,23 +22,30 @@
 <body>
 	<nav id="responsive-menu">
         <ul class="menu-holder">
-            <li class="active"><a href="#home"><i class="fa fa-home"></i>Home</a></li>
-            <li><a href="#about"><i class="fa fa-briefcase"></i>About</a></li>
-            <li><a href="#services"><i class="fa fa-cogs"></i>Services</a></li>
-            <li><a href="#products"><i class="fa fa-list"></i>Products</a></li>
-            <li><a href="#contact"><i class="fa fa-envelope"></i>Contact</a></li>
+            <li class="active"><a href="/"><i class="fa fa-home"></i>Home</a></li>
+			<% if(logged){ %>
+            <li><a href="/explore"><i class="fa fa-briefcase"></i>Explore</a></li>
+			<li><a href="/add"><i class="fa fa-home"></i>Add</a></li>
+			<li><a href="/my_subscriptz"><i class="fa fa-book"></i>My Subscriptz</a></li>
+			<li><a href="/logout"><i class="fa fa-book"></i>Logout</a></li>
+			<% }else{ %>
+				<li><a href="/login"><i class="fa fa-book"></i>Login</a></li>
+				<li><a href="/signup"><i class="fa fa-book"></i>Signup</a></li>
+			<% } %> 
+			
         </ul>
     </nav>
     <div class="templatemo-site-header" >
 		<div class="container" >
 			<div class="row templatemo-position-relative" >				
 				<nav class="hidden-xs text-uppercase templatemo-nav">
-					<ul class="menu-holder" style="background-color: black;">
-						<li class="active"><a href="#home">Home</a></li>
-						<li><a href="#about">About</a></li>					
-						<li><a href="#contact">Contact</a></li>
+					<ul class="menu-holder">
+						<li class="active"><a href="/">Home</a></li>
 						<% if(logged){ %>
-							<li><a href="/logout">Logout 😨</a></li>
+							<li><a href="/explore">🔍Explore</a></li>
+							<li><a href="/add">➕Add</a></li>	
+							<li class="active"><a href="/my_subscriptz">📃My Subscriptz</a></li>				
+							<li><a href="/logout">Logout</a></li>
 						<% }else{ %>
 							<li><a href="/login">Log in 🤭</a></li>
 							<li><a href="/signup">Sign Up 😻</a></li>

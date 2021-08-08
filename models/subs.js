@@ -25,6 +25,10 @@ const subsSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    claimed: {
+        type: String,
+        default: null,
+    }
 });
 
 module.exports = mongoose.model('subs', subsSchema);

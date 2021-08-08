@@ -19,12 +19,13 @@
 	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="assets/css/Addcoupon.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body style="overflow-x: hidden;">
 	<nav id="responsive-menu">
         <ul class="menu-holder">
             <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
             <li><a href="/explore"><i class="fa fa-briefcase"></i>Explore</a></li>
-            <li class="active"><a href="/add"><i class="fa fa-home"></i>Add</a></li>
+            <li><a href="/add"><i class="fa fa-home"></i>Add</a></li>
+            <li class="active"><a href="/my_subscriptz"><i class="fa fa-book"></i>My Subscriptz</a></li>
             <li><a href="/logout"><i class="fa fa-cogs"></i>Logout</a></li>
         </ul>
     </nav>
@@ -35,7 +36,8 @@
 					<ul class="menu-holder">
 						<li><a href="/">🏡Home</a></li>
 						<li><a href="/explore">🔍Explore</a></li>
-                        <li class="active"><a href="/add">➕Add</a></li>					
+                        <li><a href="/add">➕Add</a></li>	
+                        <li class="active"><a href="/my_subscriptz">📃My Subscriptz</a></li>				
 						<li><a href="/logout">Logout</a></li>
 						
 					</ul>
@@ -51,45 +53,28 @@
 		</div>    	
     </div>
 	<section id="home" class="templatemo-section">
-		<div class="container">
-			<div class="row">
-		
-							
+        <h2 style="margin-top: -4rem; margin-bottom: 2rem; margin-left: 2rem;">😎My Subscriptions</h2>			
 	</section>
-
-
-	<section id="contact" class="templatemo-section">
-
-		<div class="container" style="margin-top: -4rem;">
-			<div class="row">
-                <h2 class="templatemo-brown">Add Subscription🤭</h2>
-				<form method="POST" action="/add-subs">
-                   
-                    <h4 class="subtitle">Title 😎</h4>
-                    <input type="text" name="title" placeholder="Title" />
-                     <h4 class="subtitle">Description 🖌️</h4>
-                     <textarea placeholder="Description" name="desc"></textarea>
-                    <h4 class="subtitle">Url ✈️</h4>
-                    <input type="url" placeholder="Url" name="url"/>
-                    <h4 class="subtitle">Platform 🎯</h4>
-                    <input type="text" placeholder="Platform" name="platform"/>
-                    <h4 class="subtitle">Expiry Date ❗</h4>
-                    <input type="date" placeholder="Expiry Date" name="expr_date"/>
-                   
-                
-                    <button type="submit" style="width: 100%; margin-left: 10px;" class="btn text-uppercase templatemo-btn templatemo-send-btn">Submit</button>
-			         
-                  </form>
-			                   
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6">
-			
-			</div>
-		</div>
-	</section>
+		<div class="container" >
+            <div class="row">
+                <% for( var subs of data ) { %>
+                <div class="col-xs-12 col-md-4">
+                    <div class="card" style="border-radius: 20px; border: 2px solid whitesmoke; padding: 10px">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= subs.title %></h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><%= subs.platform %></h6>
+                            <p class="card-text"><%= subs.desc %></p>
+                            <a href=<%= subs.url %> class="card-link">Link</a>
+                            <p class="text-right" style="color: rgb(143, 143, 55);"><%= subs.expr_date.getDate()+"/"+(subs.expr_date.getMonth()+1)+"/"+subs.expr_date.getFullYear() %></p>
+                        </div>
+                    </div>
+                </div>
+                <% } %> 
+                </div>
+            </div>
+        </div>
 	<footer class="container margin-top-30">
-		<div class="row">
+		<div class="row"  style="bottom: 0;">
 			<div class="col-lg-12">
 				<p class="templatemo-copyright-container text-uppercase small templatemo-brown">
 					<span class="templatemo-copyright-text">Copyright &copy; 2084 <a href="#" class="templatemo-gold">Company Name</a></span>
