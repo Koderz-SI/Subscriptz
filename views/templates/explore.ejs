@@ -25,8 +25,8 @@
             <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
             <li class="active"><a href="/explore"><i class="fa fa-briefcase"></i>Explore</a></li>
             <li><a href="/add"><i class="fa fa-home"></i>Add</a></li>
+            <li ><a href="/my_subscriptz"><i class="fa fa-book"></i>My Subscriptz</a></li>
             <li><a href="/logout"><i class="fa fa-cogs"></i>Logout</a></li>
-            
         </ul>
     </nav>
     <div class="templatemo-site-header" style="background-color: black;">
@@ -36,8 +36,8 @@
 					<ul class="menu-holder">
 						<li><a href="/">🏡Home</a></li>
 						<li class="active"><a href="/explore">🔍Explore</a></li>
-                        <li><a href="/add">➕Add</a></li>
-                        <li><a href="/my_subscriptz">MY zzz</a></li>					
+                        <li><a href="/add">➕Add</a></li>	
+                        <li><a href="/my_subscriptz">📃My Subscriptz</a></li>				
 						<li><a href="/logout">Logout</a></li>
 					</ul>
 				</nav>
@@ -130,56 +130,61 @@
     <section id="about" class="templatemo-section">
 		<div class="container">
 			<div class="row">
-                <% for( var subs of data ) { %>
-				<div class="col-lg-6 col-md-6">
-                    <section>
-                        <section id="services" class="templatemo-section">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="templatemo-flex-center templatemo-black-bg text-center">
-                                            <div class="templatemo-flex-center templatemo-brown-rectangle-bg">
-                                                <div class="templatemo-flex-item-ie-fix padding-30">
-                                                    <h2 class="templatemo-gold"><%= subs.title %></h2>
-                                                    <div class="templatemo-service-container margin-top-15">
-                                                        <img src="assets/images/plan-1.png" alt="Plan 1" class="templatemo-service-image">
-                                                        <div class="templatemo-service-content text-left">
-                                                            <h3 class="templatemo-service-title templatemo-brown">About Coupon 🤔</h3>
-                                                            <p class="templatemo-service-description"><%= subs.desc %></p>
-                                                            <h3 class="templatemo-service-title templatemo-brown">Username 🙊</h3>
-                                                            <p class="templatemo-service-description"><%= subs.username %></p>
-                                                        </div>						
+                <% if (data != null) { %>
+                    <% for( var subs of data ) { %>
+                        <div class="col-lg-6 col-md-6">
+                            <section>
+                                <section id="services" class="templatemo-section">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="templatemo-flex-center templatemo-black-bg text-center">
+                                                    <div class="templatemo-flex-center templatemo-brown-rectangle-bg">
+                                                        <div class="templatemo-flex-item-ie-fix padding-30">
+                                                            <h2 class="templatemo-gold"><%= subs.title %></h2>
+                                                            <div class="templatemo-service-container margin-top-15">
+                                                                <img src="assets/images/plan-1.png" alt="Plan 1" class="templatemo-service-image">
+                                                                <div class="templatemo-service-content text-left">
+                                                                    <h3 class="templatemo-service-title templatemo-brown">About Coupon 🤔</h3>
+                                                                    <p class="templatemo-service-description"><%= subs.desc %></p>
+                                                                    <h3 class="templatemo-service-title templatemo-brown">Username 🙊</h3>
+                                                                    <p class="templatemo-service-description"><%= subs.username %></p>
+                                                                </div>						
+                                                            </div>
+                                                            <div class="templatemo-service-container">
+                                                                <img src="assets/images/plan-2.png" alt="Plan 2" class="templatemo-service-image">
+                                                                <div class="templatemo-service-content text-left">
+                                                                    <h3 class="templatemo-service-title templatemo-brown">URL 🔗</h3>
+                                                                    <a href=<%= subs.url %>><p class="templatemo-service-description">Link</p></a>
+                                                                    <h3 class="templatemo-service-title templatemo-brown">Platform 🎯</h3>
+                                                                    <p class="templatemo-service-description"><%= subs.platform %></p>	
+                                                                    
+                                                                </div>						
+                                                            </div>
+                                                            <div class="templatemo-service-container">
+                                                                <img src="assets/images/plan-3.png" alt="Plan 3" class="templatemo-service-image">
+                                                                <div class="templatemo-service-content text-left">
+                                                                    <h3 class="templatemo-service-title templatemo-brown">Expiry Date 📅</h3>
+                                                                    <p class="templatemo-service-description"><%= subs.expr_date.getDate()+"/"+(subs.expr_date.getMonth()+1)+"/"+subs.expr_date.getFullYear() %></p>	
+                                                                </div>						
+                                                            </div>	
+                                                            <form method="post" action="/claim">
+                                                                <input type="hidden" name="id" value="<%= subs.id %>">
+                                                                <button>Claim</button>
+                                                            </form>
+                                                        </div>
                                                     </div>
-                                                    <div class="templatemo-service-container">
-                                                        <img src="assets/images/plan-2.png" alt="Plan 2" class="templatemo-service-image">
-                                                        <div class="templatemo-service-content text-left">
-                                                            <h3 class="templatemo-service-title templatemo-brown">URL 🔗</h3>
-                                                            <a href=<%= subs.url %>><p class="templatemo-service-description">Link</p></a>
-                                                            <h3 class="templatemo-service-title templatemo-brown">Platform 🎯</h3>
-                                                            <p class="templatemo-service-description"><%= subs.platform %></p>	
-                                                            
-                                                        </div>						
-                                                    </div>
-                                                    <div class="templatemo-service-container">
-                                                        <img src="assets/images/plan-3.png" alt="Plan 3" class="templatemo-service-image">
-                                                        <div class="templatemo-service-content text-left">
-                                                            <h3 class="templatemo-service-title templatemo-brown">Expiry Date 📅</h3>
-                                                            <p class="templatemo-service-description"><%= subs.expr_date.getDate()+"/"+(subs.expr_date.getMonth()+1)+"/"+subs.expr_date.getFullYear() %></p>	
-                                                        </div>						
-                                                    </div>	
-                                                    <form method="post" action="/claim">
-                                                        <input type="hidden" name="id" value="<%= subs.id %>">
-                                                        <button>Claim</button>
-                                                    </form>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                    </section>
+                            </section>
 
-				</div>
-                <% } %> 
+                        </div>
+                    <% } %>
+                <% } else { %>
+                    <h2>No Subscriptions left unclaimed! 😞</h2>
+                <% } %>
 	</section>
+    
 
 	<footer class="container margin-top-30">
 		<div class="row">
