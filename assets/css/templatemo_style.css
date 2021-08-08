@@ -1,28 +1,26 @@
-/*  
+::-webkit-scrollbar {
+  width: 8px;
+}
 
-Brownie Template
+/* Track */
+::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 5px grey; */
+  border-radius: 10px;
+  background-color: rgb(0, 0, 0);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 
-http://www.templatemo.com/preview/templatemo_440_brownie
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 10px;
+}
 
-COLOR CODES
-  Black #1f1d1a
-  Light Gray #929292
-  Dark Gray #2a2a2a
-  Brown #865701, rgb(134,87,1)
-  Gold #b28601, rgb(178,134,1)
-  
-TABLE OF CONTENT
-  1. Universal Styles
-  2. Header & Menu Styles
-  3. Home Styles
-  4. About & Services Styles
-  5. Contact & Footer Styles
-  6. jCarousel
-  7. Media Queries
---------------------------------------*/
-
-/* 1. Universal Styles
---------------------------------------*/
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #3eada6;
+}
 hr.style-four {
   height: 12px;
   border: 0;
