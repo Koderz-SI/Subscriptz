@@ -29,7 +29,7 @@
             <li><a href="/logout"><i class="fa fa-cogs"></i>Logout</a></li>
         </ul>
     </nav>
-    <div class="templatemo-site-header" style="background-color: black;">
+    <div class="templatemo-site-header" >
 		<div class="container">
 			<div class="row templatemo-position-relative">				
 				<nav class="hidden-xs text-uppercase templatemo-nav">
@@ -126,8 +126,12 @@
 		</div>
 	</section>
   
-	
-    <section id="about" class="templatemo-section">
+    <br>
+    <hr class="style-two " >
+    <br>
+    <h3 style="color: blanchedalmond; text-align: center;">Check Out the Subscriptions ❗❗❗</h3>
+    
+    <section class="templatemo-section" style="margin-top: 30px;">
 		<div class="container">
 			<div class="row">
                 <% if (data != null) { %>
@@ -170,12 +174,15 @@
                                                             </div>	
                                                             <form method="post" action="/claim">
                                                                 <input type="hidden" name="id" value="<%= subs.id %>">
-                                                                <button>Claim</button>
+                                                                <button style="background-color: cornflowerblue; border: black; border-radius: 1ch; height: 35px; width: 75px; color: black; " >Claim 🟥</button>
                                                             </form>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            
+                                           
                             </section>
 
                         </div>
