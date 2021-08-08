@@ -137,7 +137,7 @@ ul { margin: 0; }
 /* 2. Header & Menu Styles
 --------------------------------------*/
 .templatemo-site-header {
-  background: url('../images/header-bg.png') repeat-x;
+  background-color:#000 ;
   border-bottom: 1px solid #ffffff;
   height: 82px; 
   position: fixed;
