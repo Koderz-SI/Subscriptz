@@ -1,7 +1,0 @@
-*.pem
-*.ppk
-*.crt
-*.key
-*.ovp
-node_modules/
-.env
