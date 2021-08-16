@@ -4,6 +4,7 @@ DEPLOYED APP : <a href="https://koderz-subscriptz.herokuapp.com/"> Subscriptz</a
 
 <img src="https://github.com/Koderz-SI/Subscriptz/blob/main/Capture.PNG"/>
 
+
 <b>Problem Statement<b/><br><br>
 All of us generally have a lot of subscriptions collected from various events and hackathons. Also, at times they get expired without being used.So this is a place where you can put your subscriptions for the needy ones and also claim any subscription that you find useful.
 
